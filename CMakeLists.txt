@@ -7,6 +7,8 @@ set(SOURCE_FILES TextEditor/Source.cpp)
 
 FILE(GLOB SOURCE TextEditor/Source/*.cpp)
 
+FILE(GLOB HEADERS TextEditor/Headers/*.h)
+
 add_executable(TextEditor ${SOURCE} TextEditor/Source.cpp)
 
 SET(TARGE_H
@@ -20,6 +22,6 @@ TextEditor/Headers/TTextLink.h
 
 SET(TARGET_SRC
 
-TextEditor/Headers/TText.cpp
-TextEditor/Headers/TTextLink.cpp
+TextEditor/Source/TText.cpp
+TextEditor/Source/TTextLink.cpp
 )

@@ -1,3 +1,3 @@
-C:/Users/PC/source/repos/text_editor/build/CMakeFiles/TextEditor.dir
-C:/Users/PC/source/repos/text_editor/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/PC/source/repos/text_editor/build/CMakeFiles/ZERO_CHECK.dir
+E:/TextEditor/build/CMakeFiles/TextEditor.dir
+E:/TextEditor/build/CMakeFiles/ALL_BUILD.dir
+E:/TextEditor/build/CMakeFiles/ZERO_CHECK.dir

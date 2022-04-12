@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\PC\source\repos\text_editor\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>E:\TextEditor\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\PC\source\repos\text_editor\build\Debug\TextEditor.exe</FullPath>
+      <FullPath>E:\TextEditor\build\Debug\TextEditor.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\PC\source\repos\text_editor\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>E:\TextEditor\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
