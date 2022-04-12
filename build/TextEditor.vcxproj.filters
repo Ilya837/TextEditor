@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\PC\source\repos\text_editor\TextEditor\Source\TText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\PC\source\repos\text_editor\TextEditor\Source\TTextLink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\PC\source\repos\text_editor\TextEditor\Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\PC\source\repos\text_editor\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2F2D39DB-C66F-34F7-A0C7-5D47A361F93E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{4b5bb711-22c6-48ad-b3e9-85b82f21c8a3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\TextEditor\Headers\TDataCom.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TextEditor\Headers\TDataValue.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TextEditor\Headers\TStack.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TextEditor\Headers\TText.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TextEditor\Headers\TTextLink.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
