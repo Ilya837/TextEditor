@@ -9,10 +9,25 @@ PTTextLink TText::ReadText(std::ifstream& TxtFile)
 	//while (TxtFile.eof() == 0) {
 	//	TxtFile.getline(StrBuff, BufLength, '\n');
 	//	if (StrBuff[0] == '}') {
-
+			//TextLevel--;
+			//break;
 	//	}
+		//else if (StrBuff[0] == '{'){
+		//	TextLevel++;
+		//	ptl->pDown=ReadText(TxtFile);
+		//}
+		//else{
+		//	ptl->pNext=new TTextLink(StrBuff, nullptr, nullptr);
+		//	ptl=ptl->pNext;
+		//}
 	//}
-	return PTTextLink();
+		//ptl=pHead;
+		//if(pHead->pDown==nullptr){
+		//pHead=pHead->pNext;
+		//delete ptl;
+		//}
+		//return pHead;
+	//         ///return PTTextLink();
 }
 
 int TText::GoFirstLink(void)
