@@ -1,3 +1,0 @@
-E:/TextEditor/build/CMakeFiles/TextEditor.dir
-E:/TextEditor/build/CMakeFiles/ALL_BUILD.dir
-E:/TextEditor/build/CMakeFiles/ZERO_CHECK.dir
