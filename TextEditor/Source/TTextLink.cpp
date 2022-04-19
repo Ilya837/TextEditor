@@ -3,7 +3,7 @@
 
 TTextLink::TTextLink(TStr s, PTTextLink pn, PTTextLink pd): pNext(pn), pDown(pd)
 {
-    if (s != NULL) strcpy(Str, s);
+    if (s != NULL) strcpy_s(Str, s);
     else Str[0] = '\0';
 }
 

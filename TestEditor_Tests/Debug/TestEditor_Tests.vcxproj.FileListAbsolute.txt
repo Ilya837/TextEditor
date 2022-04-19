@@ -1,1 +1,2 @@
 C:\Users\Алина\TextEditor\TestEditor_Tests\Debug\TestEditor_Tests.vcxproj.CopyComplete
+D:\Алина\Документы\GitHub\TextEditor\TestEditor_Tests\Debug\TestEditor_Tests.vcxproj.CopyComplete

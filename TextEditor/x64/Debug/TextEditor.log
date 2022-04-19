@@ -1,0 +1,9 @@
+﻿  Source.cpp
+  TText.cpp
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Headers\TStack.h(55,22): error C2760: синтаксическая ошибка: непредвиденный токен "идентификатор"; требуется ";"
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Headers\TTextLink.h(38,25): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+  TTextLink.cpp
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Headers\TTextLink.h(38,25): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Headers\TStack.h(55,22): error C2760: синтаксическая ошибка: непредвиденный токен "идентификатор"; требуется ";"
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Source\TTextLink.cpp(6,20): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Создание кода...

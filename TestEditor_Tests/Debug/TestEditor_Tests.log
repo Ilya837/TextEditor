@@ -1,3 +1,2 @@
 ﻿  test.cpp
-TTextLink.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/SAFESEH"
-  TestEditor_Tests.vcxproj -> C:\Users\Алина\TextEditor\Debug\TestEditor_Tests.exe
+  TestEditor_Tests.vcxproj -> D:\Алина\Документы\GitHub\TextEditor\Debug\TestEditor_Tests.exe

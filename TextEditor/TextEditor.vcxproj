@@ -142,7 +142,6 @@
   <ItemGroup>
     <ClInclude Include="Headers\TDataCom.h" />
     <ClInclude Include="Headers\TDataValue.h" />
-    <ClInclude Include="Headers\TStack.h" />
     <ClInclude Include="Headers\TText.h" />
     <ClInclude Include="Headers\TTextLink.h" />
   </ItemGroup>

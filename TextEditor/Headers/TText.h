@@ -1,7 +1,7 @@
 #pragma once
 #include "TDataCom.h"
 
-#include "TStack.h"
+//#include "TStack.h"
 #include <iostream>
 #include <fstream>
 #include <stack>
