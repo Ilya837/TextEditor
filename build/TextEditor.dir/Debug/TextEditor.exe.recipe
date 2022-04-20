@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\TextEditor\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>D:\TextEditor\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>E:\TextEditor\build\Debug\TextEditor.exe</FullPath>
+      <FullPath>D:\TextEditor\build\Debug\TextEditor.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

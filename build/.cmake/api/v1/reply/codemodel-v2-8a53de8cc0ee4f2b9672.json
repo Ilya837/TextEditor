@@ -6,6 +6,7 @@
 			[
 				{
 					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.17.0"
@@ -42,7 +43,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-Debug-4afff6133067f5adb00f.json",
+					"jsonFile" : "target-ALL_BUILD-Debug-5ed176fa70fb4b32e262.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
@@ -56,7 +57,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-Debug-fac680e33aed253d69d5.json",
+					"jsonFile" : "target-ZERO_CHECK-Debug-c16836c622c8e49b726e.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				}
@@ -67,6 +68,7 @@
 			[
 				{
 					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.17.0"
@@ -103,7 +105,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-Release-4afff6133067f5adb00f.json",
+					"jsonFile" : "target-ALL_BUILD-Release-5ed176fa70fb4b32e262.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
@@ -117,7 +119,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-Release-fac680e33aed253d69d5.json",
+					"jsonFile" : "target-ZERO_CHECK-Release-c16836c622c8e49b726e.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				}
@@ -128,6 +130,7 @@
 			[
 				{
 					"build" : ".",
+					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.17.0"
@@ -164,7 +167,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-MinSizeRel-4afff6133067f5adb00f.json",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-5ed176fa70fb4b32e262.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
@@ -178,7 +181,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-fac680e33aed253d69d5.json",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-c16836c622c8e49b726e.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				}
@@ -189,6 +192,7 @@
 			[
 				{
 					"build" : ".",
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.17.0"
@@ -225,7 +229,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-4afff6133067f5adb00f.json",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-5ed176fa70fb4b32e262.json",
 					"name" : "ALL_BUILD",
 					"projectIndex" : 0
 				},
@@ -239,7 +243,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-fac680e33aed253d69d5.json",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-c16836c622c8e49b726e.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				}
@@ -249,12 +253,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "E:/TextEditor/build",
-		"source" : "E:/TextEditor"
+		"build" : "D:/TextEditor/build",
+		"source" : "D:/TextEditor"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 2
+		"minor" : 4
 	}
 }

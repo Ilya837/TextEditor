@@ -1,7 +1,7 @@
 #include "../Headers/TTextLink.h"
 #include "../Headers/TText.h"
 
-TTextLink::TTextLink(TStr s, PTTextLink pn, PTTextLink pd): pNext(pn), pDown(pd)
+TTextLink::TTextLink(const TStr s, PTTextLink pn, PTTextLink pd): pNext(pn), pDown(pd)
 {
     if (s != NULL) strcpy(Str, s);
     else Str[0] = '\0';
@@ -37,8 +37,6 @@ void TTextLink::operator delete(void* pM)
     pLink->pNext = MemHeader.pFree;
     MemHeader.pFree = pLink;
 }
-
-
 
 TTextLink::~TTextLink(){}
 

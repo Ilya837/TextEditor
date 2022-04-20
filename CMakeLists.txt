@@ -13,7 +13,6 @@ add_executable(TextEditor ${SOURCE} TextEditor/Source.cpp)
 
 SET(TARGE_H
 
-TextEditor/Headers/TStack.h
 TextEditor/Headers/TDataCom.h
 TextEditor/Headers/TDataValue.h
 TextEditor/Headers/TText.h
