@@ -14,7 +14,6 @@ typedef TText* PTText;
 typedef TTextLink* PTTextLink;
 
 class TText : public TDataCom {
-
 protected:
 	PTTextLink pFirst; 
 	PTTextLink pCurrent; 

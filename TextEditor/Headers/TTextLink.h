@@ -36,12 +36,14 @@ protected:
 	PTTextLink pNext;
 	PTTextLink pDown;
 	TStr Str;
+	bool flag;
 	inline static TTextMem MemHeader;
+	void static Flaging( PTTextLink textlink);
 public:
 
 	TTextLink(const TStr s = NULL, PTTextLink pn = NULL, PTTextLink pd = NULL);
 
-	static void IntMemSystem(int size = MemSize);
+	static void IntMemSystem(size_t size = MemSize);
 
 	void PrintFreeLink();
 
@@ -49,7 +51,7 @@ public:
 
 	void operator delete(void* pM);
 
-	static void MemCleaner(const TText& txt);
+	static void MemCleaner(const PTTextLink txt);
 
 	~TTextLink();
 
