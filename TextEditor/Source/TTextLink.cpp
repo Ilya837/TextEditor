@@ -12,10 +12,10 @@ void TTextLink::IntMemSystem(int size){
     MemHeader.pFree = MemHeader.pfirst;
     MemHeader.plast = MemHeader.pfirst + (size - 1);
     PTTextLink plink = MemHeader.pfirst;
-    for (int i = 0; i < size - 1; plink++) {
+    for (int i = 0; i < size - 1; plink++, i++) {
         plink->pNext = plink + 1;
     }
-    plink->pNext = 0;
+    plink->pNext = nullptr;
 }
 
 void TTextLink::PrintFreeLink() {
@@ -38,7 +38,9 @@ void TTextLink::operator delete(void* pM)
     MemHeader.pFree = pLink;
 }
 
-TTextLink::~TTextLink(){}
+TTextLink::~TTextLink(){
+    delete[] MemHeader.pfirst;
+}
 
 bool TTextLink::IsAtom()
 {
@@ -54,6 +56,10 @@ PTTextLink TTextLink::GetNext()
 PTTextLink TTextLink::GetDown()
 {
     return pDown;
+}
+
+void TTextLink::MemCleaner(const TText& txt) {
+    
 }
 
 PTDataValue TTextLink::GetCopy()
