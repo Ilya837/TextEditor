@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Executable>D:\Алина\Документы\GitHub\TextEditor\Debug\TestEditor_Tests.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="TTextLink.TTextLink_EmptyConstructor" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_ConstructorWithText" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_PrintFreeLink" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_IsAtom" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_GetNext" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_EmptyIntMemSystem" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_SizedIntMemSystem" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_IsnotAtom" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_GetDown" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_GetCopy" Duration="1" />
+    <TestDuration Test="TTextLink.get_copy_has_its_own_mem" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>
