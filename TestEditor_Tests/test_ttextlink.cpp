@@ -4,17 +4,33 @@
 #include "..\TextEditor\Headers\TText.h"
 
 ///Tests for TTextLink
-TEST(TTextLink, TTextLink_EmptyIntMemSystem)
+TEST(TTextLink, TTextLink_IntMemSystem_empty)
 {
     ASSERT_NO_THROW(TTextLink::IntMemSystem());
 }
 
-TEST(TTextLink, TTextLink_SizedIntMemSystem)
+
+TEST(TTextLink, TTextLink_IntMemSystem_sized)
 {
     ASSERT_NO_THROW(TTextLink::IntMemSystem(3));
 }
 
-TEST(TTextLink, TTextLink_EmptyConstructor)
+TEST(TTextLink, TTextLink_IntMemSystem_with_1_ttextlink)
+{
+    TTextLink::IntMemSystem(2);
+    TTextLink tlink((char*)"Test");
+    ASSERT_EQ(tlink.GetpFree(), tlink.Getpfirst());
+}
+
+TEST(TTextLink, TTextLink_IntMemSystem_full)
+{
+    TTextLink::IntMemSystem(2);
+    PTTextLink tmp = new TTextLink((char*)"Test");
+    TTextLink tlink((char*)"Test", tmp, NULL);
+    ASSERT_EQ(tlink.GetpFree(), tlink.Getplast());
+}
+
+TEST(TTextLink, TTextLink_ConstructorEmpty)
 {
     TTextLink::IntMemSystem(1);
     ASSERT_NO_THROW(new TTextLink());
@@ -24,13 +40,36 @@ TEST(TTextLink, TTextLink_ConstructorWithText)
     TTextLink::IntMemSystem(1);
     ASSERT_NO_THROW(new TTextLink((char*)"Test"));
 }
-
 TEST(TTextLink, TTextLink_PrintFreeLink)
 {
     TTextLink::IntMemSystem(1);
     TTextLink tmp((char*)"Good job");
     ASSERT_NO_THROW(tmp.PrintFreeLink());
 }
+
+TEST(TTextLink, TTextLink_new)
+{
+    TTextLink::IntMemSystem(2);
+    TTextLink t;
+    PTTextLink t2 = new TTextLink();
+    ASSERT_EQ((*t2).GetpFree(), (*t2).Getplast());
+}
+
+TEST(TTextLink, TTextLink_delete)
+{
+    TTextLink::IntMemSystem(2);
+    TTextLink t;
+    PTTextLink t2 = new TTextLink();
+    delete t2;
+    ASSERT_EQ(t.Getpfirst(), t.GetpFree());
+}
+
+//TEST(TTextLink, TTextLink_MemCleaner)
+//{
+//    TTextLink::IntMemSystem();
+//    TText txt;
+//    ASSERT_NO_THROW(TTextLink::MemCleaner(txt));
+//}
 
 TEST(TTextLink, TTextLink_IsAtom)
 {
@@ -75,7 +114,7 @@ TEST(TTextLink, TTextLink_GetCopy)
     EXPECT_EQ(tmp_next, tlink.GetNext());
 }
 
-TEST(TTextLink, get_copy_has_its_own_mem)//logical?
+TEST(TTextLink, get_copy_has_its_own_mem)
 {
     TTextLink::IntMemSystem(2);
     PTTextLink testLink = new TTextLink((char*)"Test", NULL, NULL);
