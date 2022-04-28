@@ -114,7 +114,7 @@ TEST(TTextLink, TTextLink_GetCopy)
     EXPECT_EQ(tmp_next, tlink.GetNext());
 }
 
-TEST(TTextLink, get_copy_has_its_own_mem)
+TEST(TTextLink, TTextLink_GetCopy_has_own_mem)
 {
     TTextLink::IntMemSystem(2);
     PTTextLink testLink = new TTextLink((char*)"Test", NULL, NULL);
