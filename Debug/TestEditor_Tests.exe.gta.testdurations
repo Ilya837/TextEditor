@@ -13,5 +13,30 @@
     <TestDuration Test="TTextLink.TTextLink_GetDown" Duration="1" />
     <TestDuration Test="TTextLink.TTextLink_GetCopy" Duration="1" />
     <TestDuration Test="TTextLink.get_copy_has_its_own_mem" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_IntMemSystem_empty" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_IntMemSystem_sized" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_IntMemSystem_with_1_ttextlink" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_IntMemSystem_full" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_ConstructorEmpty" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_new" Duration="1" />
+    <TestDuration Test="TTextLink.TTextLink_delete" Duration="1" />
+    <TestDuration Test="TText.TText_Conctuctor_empty" Duration="1" />
+    <TestDuration Test="TText.TText_Conctuctor" Duration="1" />
+    <TestDuration Test="TText.TText_SetLine" Duration="1" />
+    <TestDuration Test="TText.TText_InsNextLine" Duration="1" />
+    <TestDuration Test="TText.TText_InsNextSection" Duration="1" />
+    <TestDuration Test="TText.TText_InsDownLine" Duration="1" />
+    <TestDuration Test="TText.TText_InsDownSection" Duration="1" />
+    <TestDuration Test="TText.TText_GoFirstLink" Duration="1" />
+    <TestDuration Test="TText.TText_GoDownLink" Duration="1" />
+    <TestDuration Test="TText.TText_GoNextLink" Duration="1" />
+    <TestDuration Test="TText.TText_GoPrevLink" Duration="1" />
+    <TestDuration Test="TText.TText_DelDownLine" Duration="1" />
+    <TestDuration Test="TText.TText_DelDownSection" Duration="1" />
+    <TestDuration Test="TText.TText_DelNextLine" Duration="1" />
+    <TestDuration Test="TText.TText_DelNextSection" Duration="1" />
+    <TestDuration Test="TText.TText_Reset" Duration="1" />
+    <TestDuration Test="TText.TText_IsTextEnded" Duration="1" />
+    <TestDuration Test="TText.TText_GoNext" Duration="1" />
   </TestDurations>
 </GtaTestDurations>

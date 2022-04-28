@@ -1,21 +1,21 @@
 #include "../Headers/TTextLink.h"
 #include "../Headers/TText.h"
 
-TTextLink::TTextLink(TStr s, PTTextLink pn, PTTextLink pd): pNext(pn), pDown(pd)
+TTextLink::TTextLink(const TStr s, PTTextLink pn, PTTextLink pd) : pNext(pn), pDown(pd), flag(false)
 {
     if (s != NULL) strcpy_s(Str, s);
     else Str[0] = '\0';
 }
 
-void TTextLink::IntMemSystem(int size){
-    MemHeader.pfirst = (PTTextLink) (new char[sizeof(TTextLink) * size]);
+void TTextLink::IntMemSystem(size_t size) {
+    MemHeader.pfirst = (PTTextLink)(new char[sizeof(TTextLink) * size]);
     MemHeader.pFree = MemHeader.pfirst;
     MemHeader.plast = MemHeader.pfirst + (size - 1);
     PTTextLink plink = MemHeader.pfirst;
-    for (int i = 0; i < size - 1; plink++,i++) {
+    for (int i = 0; i < size - 1; plink++, i++) {
         plink->pNext = plink + 1;
     }
-    plink->pNext = 0;
+    plink->pNext = nullptr;
 }
 
 void TTextLink::PrintFreeLink() {
@@ -35,12 +35,14 @@ void TTextLink::operator delete(void* pM)
 {
     PTTextLink pLink = (PTTextLink)(pM);
     pLink->pNext = MemHeader.pFree;
+    pLink->pDown = nullptr;
+    pLink->flag = false;
     MemHeader.pFree = pLink;
 }
 
-
-
-TTextLink::~TTextLink(){}
+TTextLink::~TTextLink() {
+    // delete[] MemHeader.pfirst;
+}
 
 bool TTextLink::IsAtom()
 {
@@ -98,7 +100,7 @@ void TTextLink::MemCleaner(PTTextLink txt) {
 
 PTDataValue TTextLink::GetCopy()
 {
-    return new TTextLink(Str,pNext,pDown);
+    return new TTextLink(Str, pNext, pDown);
 }
 
 std::ostream& operator<<(std::ostream& os, const TTextLink& tl)
