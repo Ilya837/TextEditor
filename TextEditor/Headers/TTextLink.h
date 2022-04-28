@@ -35,7 +35,9 @@ protected:
 	PTTextLink pNext;
 	PTTextLink pDown;
 	TStr Str;
+	bool flag;
 	inline static TTextMem MemHeader;
+	void static Flaging(PTTextLink textlink);
 public:
 
 	TTextLink(TStr s = NULL, PTTextLink pn = NULL, PTTextLink pd = NULL);
@@ -48,7 +50,7 @@ public:
 
 	void operator delete(void* pM);
 
-	static void MemCleaner(const TText& txt);
+	static void MemCleaner(const PTTextLink txt);//static void MemCleaner(const TText& txt);
 
 	~TTextLink();
 
@@ -59,6 +61,15 @@ public:
 	PTTextLink GetDown();
 
 	PTDataValue GetCopy();
+	
+	PTTextLink GetpFree() {
+		return MemHeader.pFree;
+	};
+	PTTextLink Getplast() {
+		return MemHeader.plast;
+	}; PTTextLink Getpfirst() {
+		return MemHeader.pfirst;
+	};
 
 protected:
 

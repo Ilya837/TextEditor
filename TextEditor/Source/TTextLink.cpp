@@ -58,6 +58,44 @@ PTTextLink TTextLink::GetDown()
     return pDown;
 }
 
+void TTextLink::Flaging(PTTextLink textlink) {
+    textlink->flag = true;
+    if (textlink->pDown != nullptr)
+        Flaging(textlink->pDown);
+    if (textlink->pNext != nullptr)
+        Flaging(textlink->pNext);
+
+}
+
+void TTextLink::MemCleaner(PTTextLink txt) {
+    Flaging(txt);
+    Flaging(MemHeader.pFree);
+    PTTextLink link = MemHeader.pfirst;
+    PTTextLink tmplink = nullptr;
+    while (link != MemHeader.plast) {
+        if (link->flag == false) {
+            tmplink = link;
+            link += 1;
+            delete tmplink;
+        }
+        else {
+            link->flag = false;
+            link += 1;
+        }
+    }
+
+    if (link->flag == false) {
+        tmplink = link;
+        delete tmplink;
+    }
+    else {
+        link->flag = false;
+    }
+
+    link = nullptr;
+    tmplink = nullptr;
+}
+
 PTDataValue TTextLink::GetCopy()
 {
     return new TTextLink(Str,pNext,pDown);
