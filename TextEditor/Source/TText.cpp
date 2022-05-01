@@ -276,7 +276,7 @@ int TText::GoNext(void)
 	return IsTextEnded();
 }
 
-/*void TText::Read(char* pFileName) {
+void TText::Read(char* pFileName) {
 	
 }
 
@@ -285,5 +285,47 @@ void TText::Write(char* pFileName) {
 }
 
 void TText::Print(void) {
+	PTTextLink cur = pCurrent;
+
+	Reset();
+
+	size_t level = 0;
+	size_t nextCount = 0;
+	size_t steckSize = St.size();
+	bool down;
+
+	while(!IsTextEnded()){
+
+		for(int i = 0;i<level * 4;i++){
+			std::cout << " ";
+		}
+		PrintText(pCurrent);
+		down = (pCurrent->pDown != nullptr);
+		if(pCurrent->pNext != nullptr) nextCount ++;
+		GoNext();
+
+		if(down){
+			
+			level++;
+			steckSize = St.size();
+		}
+		else{
+			if(steckSize == St.size()){
+				level = nextCount;
+				nextCount--;
+			}
+			else{
+				steckSize = St.size();
+				nextCount--;
+			}
+		}
+		std::cout <<std::endl;
+	}
+
+	for(int i = 0;i<level * 4;i++){
+		std::cout << " ";
+	}
 	
-}*/
+	PrintText(pCurrent);
+	pCurrent = cur;
+}
