@@ -290,18 +290,18 @@ void TText::Print(void) {
 	Reset();
 
 	size_t level = 0;
-	size_t nextCount = 0;
+	std::stack<size_t> nexts ;
 	size_t steckSize = St.size();
 	bool down;
 
 	while(!IsTextEnded()){
 
-		for(int i = 0;i<level * 4;i++){
-			std::cout << " ";
+		for(int i = 0;i<level;i++){
+			std::cout << '\t';
 		}
 		PrintText(pCurrent);
 		down = (pCurrent->pDown != nullptr);
-		if(pCurrent->pNext != nullptr) nextCount ++;
+		if(pCurrent->pNext != nullptr) nexts.push(level);
 		GoNext();
 
 		if(down){
@@ -310,22 +310,16 @@ void TText::Print(void) {
 			steckSize = St.size();
 		}
 		else{
-			if(steckSize == St.size()){
-				level = nextCount;
-				nextCount--;
-			}
-			else{
-				steckSize = St.size();
-				nextCount--;
-			}
+				level = nexts.top();
+				nexts.pop();
 		}
 		std::cout <<std::endl;
 	}
 
-	for(int i = 0;i<level * 4;i++){
-		std::cout << " ";
+	for(int i = 0;i<level;i++){
+		std::cout << '\t';
 	}
-	
+
 	PrintText(pCurrent);
 	pCurrent = cur;
 }
