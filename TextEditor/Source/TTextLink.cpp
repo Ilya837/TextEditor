@@ -1,7 +1,7 @@
 #include "../Headers/TTextLink.h"
 #include "../Headers/TText.h"
 
-TTextLink::TTextLink(const TStr s, PTTextLink pn, PTTextLink pd): pNext(pn), pDown(pd), flag(false)
+TTextLink::TTextLink(const TStr s, PTTextLink pn, PTTextLink pd): pNext(pn), pDown(pd)
 {
     if (s != NULL) strcpy(Str, s);
     else Str[0] = '\0';
@@ -36,12 +36,10 @@ void TTextLink::operator delete(void* pM)
     PTTextLink pLink = (PTTextLink)(pM);
     pLink->pNext = MemHeader.pFree;
     pLink->pDown = nullptr;
-    pLink->flag = false;
     MemHeader.pFree = pLink;
 }
 
 TTextLink::~TTextLink(){
-    delete[] MemHeader.pfirst;
 }
 
 bool TTextLink::IsAtom()
@@ -60,42 +58,29 @@ PTTextLink TTextLink::GetDown()
     return pDown;
 }
 
-void TTextLink::Flaging( PTTextLink textlink) {
-    textlink->flag = true;
-    if(textlink->pDown != nullptr)
-        Flaging(textlink->pDown);
-    if(textlink->pNext != nullptr)
-        Flaging(textlink->pNext);
-    
-}
 
-void TTextLink::MemCleaner(PTTextLink txt) {
-    Flaging(txt);
-    Flaging(MemHeader.pFree);
-    PTTextLink link = MemHeader.pfirst;
-    PTTextLink tmplink = nullptr;
-    while(link != MemHeader.plast){
-        if (link->flag == false){
-            tmplink = link;
-            link += 1;
-            delete tmplink;
+
+void TTextLink::MemCleaner( TText& txt) {
+    
+    for(txt.Reset();!txt.IsTextEnded();txt.GoNext()){
+        txt.SetLine("&&&" + txt.GetLine());
+    }
+    txt.SetLine("&&&" + txt.GetLine());
+
+    
+
+    for(PTTextLink tlink = MemHeader.pFree ;tlink != nullptr ;tlink= tlink->pNext){
+        strcpy(tlink->Str,"&&&");
+    }
+
+    for(PTTextLink tlink = MemHeader.pfirst;tlink != MemHeader.plast + 1;tlink++){
+        if(! strncmp("&&&",tlink->Str,3)){
+            strcpy(tlink->Str,tlink->Str + 3);
         }
         else{
-            link->flag = false;
-            link += 1;
-        }    
+            delete tlink;
+        }
     }
-
-    if (link->flag == false){
-            tmplink = link;
-            delete tmplink;
-    }
-    else{
-        link->flag = false;
-    } 
-
-    link = nullptr;
-    tmplink = nullptr;
 }
 
 PTDataValue TTextLink::GetCopy()
