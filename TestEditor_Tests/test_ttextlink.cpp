@@ -64,12 +64,24 @@ TEST(TTextLink, TTextLink_delete)
     ASSERT_EQ(t.Getpfirst(), t.GetpFree());
 }
 
-//TEST(TTextLink, TTextLink_MemCleaner)
-//{
-//    TTextLink::IntMemSystem();
-//    TText txt;
-//    ASSERT_NO_THROW(TTextLink::MemCleaner(txt));
-//}
+TEST(TTextLink, TTextLink_MemCleaner)
+{
+    TTextLink::IntMemSystem();
+    TText txt;
+    ASSERT_NO_THROW(TTextLink::MemCleaner(txt));
+}
+
+TEST(TTextLink, TTextLink_MemCleaner2)
+{
+    TTextLink::IntMemSystem(2);
+    PTTextLink pLink = new TTextLink((char*)"Test");
+    TText txt(pLink);
+    txt.Reset();
+    txt.InsNextLine("next");
+    txt.DelNextLine();
+    ASSERT_NO_THROW(TTextLink::MemCleaner(txt));
+    EXPECT_EQ((*pLink).Getplast(), (*pLink).GetpFree());
+}
 
 TEST(TTextLink, TTextLink_IsAtom)
 {
