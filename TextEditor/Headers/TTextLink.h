@@ -19,9 +19,9 @@ class TText;
 class TTextLink;
 class TTextMem;
 
-typedef TTextMem* PTTextMem;
+typedef TTextMem *PTTextMem;
 typedef char TStr[TextLineLength];
-typedef TTextLink* PTTextLink;
+typedef TTextLink *PTTextLink;
 
 class TTextMem {
 	PTTextLink pfirst;
@@ -36,12 +36,11 @@ protected:
 	PTTextLink pNext;
 	PTTextLink pDown;
 	TStr Str;
-	bool flag;
 	inline static TTextMem MemHeader;
-	void static Flaging(PTTextLink textlink);
 public:
 
-	TTextLink(const TStr s = NULL, PTTextLink pn = NULL, PTTextLink pd = NULL);
+
+	TTextLink(const TStr s = NULL, PTTextLink pn = nullptr, PTTextLink pd = nullptr);
 
 	static void IntMemSystem(size_t size = MemSize);
 
@@ -51,7 +50,7 @@ public:
 
 	void operator delete(void* pM);
 
-	static void MemCleaner(const PTTextLink txt);
+	void static  MemCleaner(TText& txt);
 
 	~TTextLink();
 
@@ -63,14 +62,10 @@ public:
 
 	PTDataValue GetCopy();
 
-	PTTextLink GetpFree() {
-		return MemHeader.pFree;
-	};
-	PTTextLink Getplast() {
-		return MemHeader.plast;
-	}; PTTextLink Getpfirst() {
-		return MemHeader.pfirst;
-	};
+	PTTextLink Getplast() { return MemHeader.plast; }
+	PTTextLink GetpFree() { return MemHeader.pFree; }
+	PTTextLink Getpfirst() { return MemHeader.pfirst; }
+
 protected:
 
 	friend std::ostream& operator << (std::ostream& os, const TTextLink& tl);

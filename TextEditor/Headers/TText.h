@@ -1,7 +1,7 @@
 #pragma once
 #include "TDataCom.h"
 
-//#include "TStack.h"
+
 #include <iostream>
 #include <fstream>
 #include <stack>
@@ -14,7 +14,6 @@ typedef TText* PTText;
 typedef TTextLink* PTTextLink;
 
 class TText : public TDataCom {
-
 protected:
 	PTTextLink pFirst; 
 	PTTextLink pCurrent; 
@@ -24,8 +23,8 @@ protected:
 	void PrintText(PTTextLink ptl); 
 	PTTextLink ReadText(std::ifstream& TxtFile); 
 public:
-	TText(PTTextLink pl = NULL);
-	~TText() { pFirst = NULL; }
+	TText(PTTextLink pl = nullptr);
+	~TText() { pFirst = nullptr; }
 	PTText getCopy();
 
 	int GoFirstLink(void); 
