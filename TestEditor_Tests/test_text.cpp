@@ -232,11 +232,12 @@ TEST(TText, TText_GoNext)
 //    TText tmp(pLink);
 //    ASSERT_NO_THROW(tmp.Write((char*)"file.txt"));
 //}
-//TEST(TText, TText_Print)
-//{
-//    TTextLink::IntMemSystem(10);
-//    PTTextLink pNext = new TTextLink((char*)"strDown", NULL, NULL);
-//    PTTextLink pLink = new TTextLink((char*)"str", pNext, NULL);
-//    TText tmp(pLink);
-//    ASSERT_NO_THROW(tmp.Print());
-//}
+TEST(TText, TText_Print)
+{
+    TTextLink::IntMemSystem(5);
+    PTTextLink pNext = new TTextLink((char*)"strNext");
+    PTTextLink pDown = new TTextLink((char*)"strDown");
+    PTTextLink pLink = new TTextLink((char*)"str", pNext, pDown);
+    TText tmp(pLink);
+    ASSERT_NO_THROW(tmp.Print());
+}
