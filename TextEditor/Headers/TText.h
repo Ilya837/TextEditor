@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <stack>
+#include <fstream>
 
 
 class TText;
@@ -20,12 +21,11 @@ protected:
 	std::stack< PTTextLink > Path; 
 	std::stack< PTTextLink > St; 
 	PTTextLink GetFirstAtom(PTTextLink pl); 
-	void PrintText(PTTextLink ptl); 
-	PTTextLink ReadText(std::ifstream& TxtFile); 
+	void PrintText(PTTextLink ptl);
 public:
 	TText(PTTextLink pl = nullptr);
-	~TText() { pFirst = nullptr; }
-	PTText getCopy();
+	~TText() { pFirst = nullptr; };
+	//PTText getCopy();
 
 	int GoFirstLink(void); 
 	int GoDownLink(void); 

@@ -62,6 +62,23 @@ public:
 
 	PTDataValue GetCopy();
 
+	////// Testing /////
+
+	PTTextLink GetpFree() {
+		return MemHeader.pFree;
+	};
+
+	PTTextLink Getplast() {
+		return MemHeader.plast;
+	}; 
+
+	PTTextLink Getpfirst() {
+		return MemHeader.pfirst;
+	};
+
+	/////////////////////
+
+
 protected:
 
 	friend std::ostream& operator << (std::ostream& os, const TTextLink& tl);

@@ -19,7 +19,7 @@ void TTextLink::IntMemSystem(size_t size){
 }
 
 void TTextLink::PrintFreeLink() {
-    PTTextLink plink = MemHeader.pfirst;
+    PTTextLink plink = MemHeader.pFree;
     for (; plink != nullptr; plink = plink->pNext)
         std::cout << plink->Str << std::endl;
 }

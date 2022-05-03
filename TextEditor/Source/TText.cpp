@@ -1,33 +1,6 @@
 #include "../Headers/TText.h"
 #include "../Headers/TTextLink.h"
 
-PTTextLink TText::ReadText(std::ifstream& TxtFile)
-{
-	PTTextLink pHead, ptl;
-	char StrBuff[TextLineLength];
-	pHead = ptl = new TTextLink();
-	while (TxtFile.eof() == 0) {
-		TxtFile.getline(StrBuff, TextLineLength, '\n');
-		if (StrBuff[0] == '}') {
-			//TextLevel--;
-			break;
-		}
-		else if (StrBuff[0] == '{'){
-			//TextLevel++;
-			ptl->pDown=ReadText(TxtFile);
-		}
-		else{
-			ptl->pNext=new TTextLink(StrBuff, nullptr, nullptr);
-			ptl=ptl->pNext;
-		}
-	}
-	ptl=pHead;
-	if(pHead->pDown==nullptr){
-		pHead=pHead->pNext;
-		delete ptl;
-	}
-	return pHead;
-}
 
 
 PTTextLink TText::GetFirstAtom(PTTextLink pl) {
@@ -127,8 +100,12 @@ void TText::InsDownLine(std::string s) {
 
 		PTTextLink pd = pCurrent->pDown;
 		pCurrent->pDown = new TTextLink(s.c_str(),pd,nullptr);
-
-		SetRetCode(TextOk);
+		if(pCurrent->pDown == nullptr){
+			TTextLink::MemCleaner(*this);
+			pCurrent->pDown = new TTextLink(s.c_str(),pd,nullptr);
+		}
+		if(pCurrent->pDown == nullptr) SetRetCode(TextNoMem);
+		else SetRetCode(TextOk);
 	}
 }
 
@@ -138,8 +115,12 @@ void TText::InsDownSection(std::string s) {
 
 		PTTextLink pd = pCurrent->pDown;
 		pCurrent->pDown = new TTextLink(s.c_str(),nullptr,pd);
-
-		SetRetCode(TextOk);
+		if(pCurrent->pDown == nullptr){
+			TTextLink::MemCleaner(*this);
+			pCurrent->pDown = new TTextLink(s.c_str(),nullptr,pd);
+		}
+		if(pCurrent->pDown == nullptr) SetRetCode(TextNoMem);
+		else SetRetCode(TextOk);
 	}
 }
 
@@ -149,8 +130,12 @@ void TText::InsNextLine(std::string s) {
 
 		PTTextLink pn = pCurrent->pNext;
 		pCurrent->pNext = new TTextLink(s.c_str(),pn,nullptr);
-
-		SetRetCode(TextOk);
+		if(pCurrent->pNext == nullptr){
+			TTextLink::MemCleaner(*this);
+			pCurrent->pNext = new TTextLink(s.c_str(),pn,nullptr);
+		}
+		if(pCurrent->pNext == nullptr) SetRetCode(TextNoMem);
+		else SetRetCode(TextOk);
 	}
 }
 
@@ -160,8 +145,12 @@ void TText::InsNextSection(std::string s) {
 
 		PTTextLink pn = pCurrent->pNext;
 		pCurrent->pNext = new TTextLink(s.c_str(),nullptr,pn);
-
-		SetRetCode(TextOk);
+		if(pCurrent->pNext == nullptr){
+			TTextLink::MemCleaner(*this);
+			pCurrent->pNext = new TTextLink(s.c_str(),nullptr,pn);
+		}
+		if(pCurrent->pNext == nullptr) SetRetCode(TextNoMem);
+		else SetRetCode(TextOk);
 	}
 }
 
@@ -277,11 +266,128 @@ int TText::GoNext(void)
 }
 
 void TText::Read(char* pFileName) {
-	
+	PTTextLink first;
+
+	TTextLink::MemCleaner(*this);
+	first = new TTextLink();
+	if(first == nullptr){
+		SetRetCode(TextNoMem);
+		return;
+	}
+
+	PTText tmpText = new TText(first);
+	size_t lastLevel = 0, Level, NextCounter = 0;
+
+	TStr line;
+	std::ifstream file;
+
+	file.open(pFileName);
+
+	file.getline(line,TextLineLength);
+	Level = 0;
+	while(line[0] == '\t'){
+		std::strcpy(line,line+1);
+		Level++;
+	}
+	lastLevel = Level;
+
+	tmpText->SetLine(line);
+
+	while(!file.eof()){
+		file.getline(line,TextLineLength);
+		Level = 0;
+		while(line[0] == '\t'){
+			std::strcpy(line,line+1);
+			Level++;
+		}
+
+		if(Level > lastLevel){
+			tmpText->InsDownLine(line);
+
+			if(RetCode != TextOk){
+				SetRetCode(TextNoMem);
+				TTextLink::MemCleaner(*this);
+				return;
+			}
+
+			tmpText->GoDownLink();
+		}
+		else if(Level == lastLevel){
+			tmpText->InsNextLine(line);
+
+			if(RetCode != TextOk){
+				SetRetCode(TextNoMem);
+				TTextLink::MemCleaner(*this);
+				return;
+			}
+			NextCounter ++;
+			tmpText->GoNextLink();
+		}
+		else{
+			for(size_t i = 0; i< lastLevel - Level + NextCounter;i++){
+				tmpText->GoPrevLink();
+			}
+
+			tmpText->InsNextLine(line);
+
+			if(RetCode != TextOk){
+				SetRetCode(TextNoMem);
+				TTextLink::MemCleaner(*this);
+				return;
+			}
+			NextCounter = 1;
+			tmpText->GoNextLink();
+		}
+
+		lastLevel = Level;
+	}
+
+	pFirst = tmpText->pFirst;
+	pCurrent = pFirst;
+	TTextLink::MemCleaner(*this);
 }
 
 void TText::Write(char* pFileName) {
-	
+	std::ofstream file;
+
+	file.open(pFileName,std::ios_base::trunc);
+	PTTextLink cur = pCurrent;
+
+	Reset();
+
+	size_t level = 0;
+	std::stack<size_t> nexts ;
+	size_t steckSize = St.size();
+	bool down;
+
+	while(!IsTextEnded()){
+
+		for(int i = 0;i<level;i++){
+			file << '\t';
+		}
+		file << pCurrent->Str;
+		down = (pCurrent->pDown != nullptr);
+		if(pCurrent->pNext != nullptr) nexts.push(level);
+		GoNext();
+
+		if(down){
+			
+			level++;
+			steckSize = St.size();
+		}
+		else{
+				level = nexts.top();
+				nexts.pop();
+		}
+		file <<std::endl;
+	}
+
+	for(int i = 0;i<level;i++){
+		file << '\t';
+	}
+
+	file << pCurrent->Str;
+	pCurrent = cur;
 }
 
 void TText::Print(void) {
