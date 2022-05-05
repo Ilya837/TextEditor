@@ -20,6 +20,46 @@ void TText::PrintText(PTTextLink ptl) {
 //PTText TText::getCopy() {
 	
 //}
+/*
+PTText TText::getCopy() {
+	PTTextLink pl1, pl2, pl = pFirst, cpl = nullptr;
+	if (pFirst != nullptr) {
+		while (!St.empty())
+			St.pop();
+		while (true) {
+			if (pl != nullptr) {
+				pl = GetFirstAtom(pl);
+				St.push(pl);
+				pl = pl->GetDown();
+			}
+			else if (St.empty())
+				break;
+			else {
+				pl1 = St.top();
+
+				St.pop();
+				if (strstr(pl1->Str, "Copy") == NULL) {
+					pl2 = new TTextLink("Copy", pl1, cpl);
+					St.push(pl2);
+					pl = pl1->GetNext();
+					cpl = nullptr;
+				}
+				else {
+					pl2 = pl1->GetNext();
+
+					strcpy(pl1->Str, pl2->Str);
+					pl1->pNext = cpl;
+					cpl = pl1;
+				}
+			}
+
+
+
+		}
+	}
+	return new TText(cpl);
+}
+*/
 
 std::string TText::GetLine(void) {
 	return pCurrent->Str;
