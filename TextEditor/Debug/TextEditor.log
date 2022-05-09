@@ -1,2 +1,10 @@
 ﻿  Source.cpp
+  TText.cpp
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Source\TText.cpp(415,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Source\TText.cpp(435,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Source\TText.cpp(455,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Source\TText.cpp(475,20): warning C4018: <: несоответствие типов со знаком и без знака
+  TTextLink.cpp
+D:\Алина\Документы\GitHub\TextEditor\TextEditor\Source\TTextLink.cpp(15,23): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
   TextEditor.vcxproj -> D:\Алина\Документы\GitHub\TextEditor\Debug\TextEditor.exe

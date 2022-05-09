@@ -16,26 +16,25 @@ TEST(TText, TText_Conctuctor)
 }
 
 //get copy
+TEST(TText, TText_getCopy_own_memory)
+{
+    TTextLink::IntMemSystem(3);
+    PTTextLink pl = new TTextLink((char*)"copy", NULL, NULL);
+    TText t1(pl);
+    PTText cpy = t1.getCopy();
+    EXPECT_NE(&t1, cpy);
+}
 
-//TEST(TText, TText_getCopy_own_memory)
-//{
-//    TTextLink::IntMemSystem(3);
-//    PTTextLink pl = new TTextLink((char*)"copy", NULL, NULL);
-//    TText t1(pl);
-//    PTText cpy = t1.getCopy();
-//    EXPECT_NE(&t1, cpy);
-//}
-
-//TEST(TText, TText_getCopy)
-//{
-//    TTextLink::IntMemSystem(3);
-//    PTTextLink pl = new TTextLink((char*)"copy", NULL, NULL);
-//    TText t1(pl);
-//    PTText cpy = t1.getCopy();
-//    std::string s = t1.GetLine();
-//    s = cpy->GetLine();
-//    EXPECT_EQ(t1.GetLine(), cpy->GetLine());
-//}
+TEST(TText, TText_getCopy)
+{
+    TTextLink::IntMemSystem(3);
+    PTTextLink pl = new TTextLink((char*)"copy", NULL, NULL);
+    TText t1(pl);
+    PTText cpy = t1.getCopy();
+    std::string s = t1.GetLine();
+    s = cpy->GetLine();
+    EXPECT_EQ(t1.GetLine(), cpy->GetLine());
+}
 
 TEST(TText, TText_SetLine)
 {
@@ -215,23 +214,29 @@ TEST(TText, TText_GoNext)
 
 /* Work with files */
 
-//TEST(TText, TText_Read_from_file)
-//{
-//    TTextLink::IntMemSystem(10);
-//    PTTextLink pNext = new TTextLink((char*)"strDown", NULL, NULL);
-//    PTTextLink pLink = new TTextLink((char*)"str", pNext, NULL);
-//    TText tmp(pLink);
-//    ASSERT_NO_THROW(tmp.Read((char*)"file.txt"));
-//}
-//
-//TEST(TText, TText_Write_to_file)
-//{
-//    TTextLink::IntMemSystem(10);
-//    PTTextLink pNext = new TTextLink((char*)"strDown", NULL, NULL);
-//    PTTextLink pLink = new TTextLink((char*)"str", pNext, NULL);
-//    TText tmp(pLink);
-//    ASSERT_NO_THROW(tmp.Write((char*)"file.txt"));
-//}
+/* Work with files */
+
+TEST(TText, TText_Read_from_file)
+{
+    TTextLink::IntMemSystem(10);
+    PTTextLink pNext = new TTextLink((char*)"strNext", NULL, NULL);
+    PTTextLink pDown = new TTextLink((char*)"strDown", NULL, NULL);
+    PTTextLink pLink = new TTextLink((char*)"str", pNext, pDown);
+    TText tmp(pLink);
+    ASSERT_NO_THROW(tmp.Read((char*)"../TestEditor_Tests/file.txt"));
+}
+
+
+TEST(TText, TText_Write_to_file)
+{
+    TTextLink::IntMemSystem(10);
+    PTTextLink pNext = new TTextLink((char*)"strNext", NULL, NULL);
+    PTTextLink pDown = new TTextLink((char*)"strDown", NULL, NULL);
+    PTTextLink pLink = new TTextLink((char*)"str", pNext, pDown);
+    TText tmp(pLink);
+    ASSERT_NO_THROW(tmp.Write((char*)"../TestEditor_Tests/file.txt"));
+}
+
 TEST(TText, TText_Print)
 {
     TTextLink::IntMemSystem(5);
